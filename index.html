@@ -3,162 +3,217 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Alejandro Nava de León · RAL Ventas</title>
-  <meta name="description" content="Tarjeta de presentación de Alejandro Nava de León, Departamento de Ventas de RAL.">
+  <title>Alejandro Nava de León · GS RAL</title>
+  <meta name="description" content="Tarjeta de presentación de Alejandro Nava de León, Departamento de Ventas de GS RAL Proveedores Industriales.">
   <link rel="icon" href="logo-ral.jpg" type="image/jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     /* Colores tomados del logo de RAL */
     :root {
-      --brand: #E9212B;
-      --brand-dark: #B3141C;
-      --ink: #F2F2F2;
-      --muted: #A0A0A0;
-      --card: #1E2221;
-      --bg: #0B0C0E;
+      --red: #E9212B;
+      --red-light: #F25A45;
+      --white: #F2F2F2;
+      --gray: #9A9CA1;
+      --gray-dark: #4A4C52;
+      --line: #26282D;
+      --panel: #0F1013;
+      --panel-2: #16181C;
+      --btn: #1A1C20;
+      --bg: #08090B;
       --whatsapp: #25D366;
+      --cut: 14px;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 48px;
-      padding: 48px 16px;
-      font-family: "Montserrat", Arial, Helvetica, sans-serif;
-      color: var(--ink);
+      font-family: "Barlow", Arial, Helvetica, sans-serif;
+      color: var(--white);
       background:
-        radial-gradient(circle at 15% 20%, rgba(233, 33, 43, .18), transparent 45%),
-        radial-gradient(circle at 85% 80%, rgba(100, 100, 100, .18), transparent 45%),
+        radial-gradient(ellipse at 0% 30%, rgba(233, 33, 43, .10), transparent 55%),
+        radial-gradient(ellipse at 100% 100%, rgba(255, 255, 255, .04), transparent 50%),
         var(--bg);
+      padding: 16px 16px 64px;
+    }
+    a { color: inherit; text-decoration: none; }
+    .condensed {
+      font-family: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+      text-transform: uppercase;
+    }
+    .bars { display: flex; gap: 5px; }
+    .bars span { height: 4px; border-radius: 1px; transform: skewX(-30deg); }
+    .bars span:nth-child(1) { width: 56px; background: var(--red); }
+    .bars span:nth-child(2) { width: 38px; background: var(--gray-dark); }
+    .bars span:nth-child(3) { flex: 1; background: var(--line); }
+
+    /* ---------- Tarjeta ---------- */
+    .card-wrap {
+      width: 100%;
+      max-width: 380px;
+      margin: 0 auto;
     }
     .card {
-      width: 100%;
-      max-width: 560px;
-      background: var(--card);
-      border-radius: 20px;
+      position: relative;
       overflow: hidden;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, .6);
-      border: 1px solid #2C3130;
-      display: grid;
-      grid-template-columns: 36% 1fr;
+      padding: 36px 28px 28px;
+      background: linear-gradient(170deg, var(--panel-2), var(--panel) 60%);
+      border: 1px solid var(--line);
+      clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 0 100%);
     }
-    .card__brand {
-      background: #06070A; /* mismo negro que el fondo del logo */
+    .card__stripes {
+      position: absolute;
+      top: 14px;
+      right: -10px;
+      width: 140px;
+      display: grid;
+      gap: 8px;
+      justify-items: end;
+      pointer-events: none;
+    }
+    .card__stripes span { display: block; height: 26px; transform: skewY(-12deg); }
+    .card__stripes span:nth-child(1) { width: 140px; background: linear-gradient(90deg, var(--red-light), var(--red)); }
+    .card__stripes span:nth-child(2) { width: 110px; background: #43454B; }
+    .card__stripes span:nth-child(3) { width: 80px; background: #2A2C31; }
+    .logo {
+      width: 104px;
+      height: 104px;
       display: grid;
       place-items: center;
-      padding: 28px 20px;
+      background: #06070A;
+      border: 1px solid #2E3035;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 16px 100%, 0 calc(100% - 16px));
     }
-    .card__brand img {
-      width: 100%;
-      max-width: 180px;
-    }
-    .card__info {
-      padding: 32px 28px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 6px;
-      border-left: 6px solid var(--brand);
-    }
-    .name {
-      font-size: 1.55rem;
-      font-weight: 800;
-      line-height: 1.15;
-    }
-    .role {
-      font-size: .8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: .14em;
-      color: var(--brand);
-    }
-    .divider {
-      width: 48px;
-      height: 4px;
-      background: var(--brand);
-      border-radius: 2px;
-      margin: 14px 0;
-    }
-    .phone {
-      color: var(--muted);
-      font-size: .95rem;
-      text-decoration: none;
-    }
-    .phone:hover { color: var(--ink); }
-    .btn-wa {
+    .logo img { width: 92%; display: block; }
+    .company {
       margin-top: 18px;
-      display: inline-flex;
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: .14em;
+      color: var(--gray);
+    }
+    .company b { color: var(--red); font-weight: 700; }
+    .name {
+      margin-top: 18px;
+      font-size: 2.35rem;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: .01em;
+    }
+    .name span { display: block; color: var(--gray); }
+    .badge {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 7px 26px 7px 12px;
+      background: var(--red);
+      color: #fff;
+      font-size: .95rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      clip-path: polygon(0 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+    }
+    .card .bars { margin-top: 26px; }
+    .phone {
+      margin-top: 22px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .phone__icon {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      background: var(--btn);
+      border: 1px solid #2E3035;
+      color: var(--red);
+      flex-shrink: 0;
+    }
+    .phone__icon svg { width: 16px; height: 16px; fill: currentColor; }
+    .phone small {
+      display: block;
+      font-size: .72rem;
+      letter-spacing: .14em;
+      color: var(--gray);
+      text-transform: uppercase;
+    }
+    .phone strong { font-size: 1.05rem; font-weight: 600; }
+    .phone:hover strong { color: #fff; }
+    .btn-wa {
+      margin-top: 26px;
+      display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: 13px 20px;
-      white-space: nowrap;
-      border-radius: 999px;
+      gap: 12px;
+      padding: 15px 20px;
       background: var(--whatsapp);
-      color: #fff;
-      font-weight: 600;
-      font-size: 1rem;
-      text-decoration: none;
-      box-shadow: 0 8px 18px rgba(37, 211, 102, .35);
-      transition: transform .15s ease, box-shadow .15s ease;
+      color: #0B2A16;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 100%, var(--cut) 100%, 0 calc(100% - var(--cut)));
+      transition: filter .15s ease;
     }
-    .btn-wa:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(37, 211, 102, .45); }
-    .btn-wa:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
-    .btn-wa svg { width: 22px; height: 22px; fill: currentColor; flex-shrink: 0; }
-
+    .btn-wa:hover { filter: brightness(1.08); }
+    .btn-wa svg { width: 24px; height: 24px; fill: currentColor; }
     .socials {
-      margin-top: 16px;
-      display: flex;
+      margin-top: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 12px;
     }
     .socials a {
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: #2C3130;
-      color: var(--ink);
-      transition: background .15s ease, transform .15s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 10px;
+      background: var(--btn);
+      border: 1px solid #2E3035;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      transition: border-color .15s ease, background .15s ease;
     }
-    .socials a:hover { background: var(--brand); transform: translateY(-2px); }
-    .socials a:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; }
-    .socials svg { width: 20px; height: 20px; fill: currentColor; }
+    .socials a:hover { border-color: var(--red); background: #202227; }
+    .socials svg { width: 22px; height: 22px; fill: var(--red); }
+    .btn-wa:focus-visible, .socials a:focus-visible, .phone:focus-visible { outline: 2px solid var(--white); outline-offset: 3px; }
+    .card-foot {
+      height: 8px;
+      margin-top: 16px;
+      background: linear-gradient(90deg, var(--red) 0 42%, #3A3C41 42% 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 10px 100%);
+    }
 
-    .services {
+    /* ---------- Servicios ---------- */
+    .section {
       width: 100%;
-      max-width: 960px;
+      max-width: 1040px;
+      margin: 72px auto 0;
     }
-    .services h2 {
-      font-size: 1.4rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      text-align: center;
+    .section__head { text-align: center; }
+    .eyebrow {
+      font-size: .9rem;
+      font-weight: 600;
+      letter-spacing: .22em;
+      color: var(--red);
     }
-    .services h2::after {
-      content: "";
-      display: block;
-      width: 48px;
-      height: 4px;
-      margin: 12px auto 28px;
-      background: var(--brand);
-      border-radius: 2px;
+    .section__head h2 {
+      margin-top: 4px;
+      font-size: 2.4rem;
+      font-weight: 700;
     }
-    .services ul {
+    .section__head .bars { width: 200px; margin: 14px auto 32px; }
+    .services {
       list-style: none;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 16px;
     }
     .service {
-      background: var(--card);
-      border: 1px solid #2C3130;
-      border-radius: 14px;
-      overflow: hidden;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%);
       display: flex;
       flex-direction: column;
     }
@@ -167,86 +222,151 @@
       aspect-ratio: 4 / 3;
       object-fit: cover;
       display: block;
+      border-bottom: 3px solid var(--red);
     }
     .service h3 {
-      padding: 14px 16px;
-      font-size: .9rem;
-      font-weight: 600;
-      line-height: 1.35;
-      border-top: 4px solid var(--brand);
       flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 68px;
+      padding: 12px 16px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: .03em;
+    }
+    .service h3::before {
+      content: "";
+      width: 8px;
+      height: 18px;
+      background: var(--red);
+      transform: skewX(-20deg);
+      flex-shrink: 0;
     }
 
-    @media (max-width: 520px) {
-      .card { grid-template-columns: 1fr; }
-      .card__brand { padding: 24px 20px; }
-      .card__brand img { max-width: 150px; }
-      .card__info { text-align: center; align-items: center; border-left: 0; border-top: 6px solid var(--brand); }
-      .btn-wa { width: 100%; }
+    /* ---------- Renta ---------- */
+    .rent {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 22px 100%, 0 calc(100% - 22px));
+    }
+    .rent img {
+      width: 100%;
+      height: 100%;
+      min-height: 260px;
+      object-fit: cover;
+      display: block;
+      border-right: 3px solid var(--red);
+    }
+    .rent__body { padding: 30px 28px; }
+    .rent h2 { font-size: 1.9rem; font-weight: 700; line-height: 1.05; }
+    .rent ul { list-style: none; margin-top: 16px; display: grid; gap: 8px; }
+    .rent li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--gray);
+      font-size: 1rem;
+    }
+    .rent li::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: var(--red);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+    }
+    .rent li b { color: var(--white); font-weight: 600; }
+
+    @media (max-width: 900px) {
+      .services { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .rent { grid-template-columns: 1fr; }
+      .rent img { min-height: 0; aspect-ratio: 16 / 10; border-right: 0; border-bottom: 3px solid var(--red); }
+      .rent__body { padding: 24px 20px 28px; }
+    }
+    @media (max-width: 420px) {
+      .card { padding: 30px 20px 22px; }
+      .name { font-size: 2rem; }
+      .card__stripes { transform: scale(.8); transform-origin: top right; }
+      .section__head h2 { font-size: 2rem; }
+      .services { gap: 10px; }
+      .service h3 { font-size: 1rem; padding: 10px 12px; gap: 8px; min-height: 60px; }
     }
   </style>
 </head>
 <body>
-  <main class="card">
-    <div class="card__brand">
-      <img src="logo-ral.jpg" alt="Logo de RAL">
-    </div>
-    <div class="card__info">
-      <h1 class="name">Alejandro Nava de León</h1>
-      <p class="role">Departamento de Ventas</p>
-      <span class="divider" aria-hidden="true"></span>
-      <a class="phone" href="tel:84417800221">844 1780 0221</a>
-      <a class="btn-wa" href="https://wa.me/5284417800221?text=Hola%20Alejandro%2C%20me%20interesa%20recibir%20informaci%C3%B3n." target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.32l-.34-.2-3.57.94.95-3.48-.22-.36a9.43 9.43 0 0 1-1.45-5.03c0-5.2 4.24-9.44 9.45-9.44a9.38 9.38 0 0 1 6.68 2.77 9.38 9.38 0 0 1 2.76 6.68c0 5.2-4.24 9.44-9.45 9.44zm8.04-17.48A11.3 11.3 0 0 0 12.05.7C5.78.7.68 5.8.68 12.06c0 2 .52 3.96 1.52 5.68L.58 23.3l5.7-1.5a11.33 11.33 0 0 0 5.77 1.47h.01c6.26 0 11.36-5.1 11.36-11.37 0-3.04-1.18-5.89-3.33-8.04z"/></svg>
-        Escríbeme por WhatsApp
+  <main class="card-wrap">
+    <article class="card">
+      <div class="card__stripes" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="logo"><img src="logo-ral.jpg" alt="Logo de GS RAL"></div>
+      <p class="company"><b>GS</b> RAL · Proveedores Industriales</p>
+      <h1 class="name condensed">Alejandro <span>Nava de León</span></h1>
+      <p class="badge condensed">Departamento de Ventas</p>
+      <div class="bars" aria-hidden="true"><span></span><span></span><span></span></div>
+      <a class="phone" href="tel:84417800221">
+        <span class="phone__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>
+        </span>
+        <span><small>Teléfono</small><strong>844 1780 0221</strong></span>
       </a>
-      <nav class="socials" aria-label="Redes sociales de RAL">
-        <a href="https://www.facebook.com/share/1WKZqEqH3X/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
+      <a class="btn-wa condensed" href="https://wa.me/5284417800221?text=Hola%20Alejandro%2C%20me%20interesa%20recibir%20informaci%C3%B3n." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.32l-.34-.2-3.57.94.95-3.48-.22-.36a9.43 9.43 0 0 1-1.45-5.03c0-5.2 4.24-9.44 9.45-9.44a9.38 9.38 0 0 1 6.68 2.77 9.38 9.38 0 0 1 2.76 6.68c0 5.2-4.24 9.44-9.45 9.44zm8.04-17.48A11.3 11.3 0 0 0 12.05.7C5.78.7.68 5.8.68 12.06c0 2 .52 3.96 1.52 5.68L.58 23.3l5.7-1.5a11.33 11.33 0 0 0 5.77 1.47h.01c6.26 0 11.36-5.1 11.36-11.37 0-3.04-1.18-5.89-3.33-8.04z"/></svg>
+        Enviar WhatsApp
+      </a>
+      <nav class="socials condensed" aria-label="Redes sociales de GS RAL">
+        <a href="https://www.facebook.com/share/1WKZqEqH3X/?mibextid=wwXIfr" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+          Facebook
         </a>
-        <a href="https://instagram.com/gs.ral?mdxt=b3I0bzV4N293azNi" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38A5.88 5.88 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13a5.88 5.88 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.88 5.88 0 0 0 2.13-1.38 5.88 5.88 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.88 5.88 0 0 0-1.38-2.13A5.88 5.88 0 0 0 19.86.63C19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
+        <a href="https://instagram.com/gs.ral?mdxt=b3I0bzV4N293azNi" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zm5.25-3.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/></svg>
+          Instagram
         </a>
       </nav>
-    </div>
+    </article>
+    <div class="card-foot" aria-hidden="true"></div>
   </main>
 
-  <section class="services" aria-labelledby="servicios">
-    <h2 id="servicios">Nuestros servicios</h2>
-    <ul>
-      <li class="service">
-        <img src="img/servicios/rigging.jpg" alt="Rigging" loading="lazy">
-        <h3>Rigging</h3>
-      </li>
-      <li class="service">
-        <img src="img/servicios/maniobras.jpg" alt="Maniobras industriales" loading="lazy">
-        <h3>Maniobras industriales</h3>
-      </li>
-      <li class="service">
-        <img src="img/servicios/carga-descarga.jpg" alt="Carga / descarga" loading="lazy">
-        <h3>Carga / descarga</h3>
-      </li>
-      <li class="service">
-        <img src="img/servicios/traslados.jpg" alt="Traslados de equipo / maquinaria" loading="lazy">
-        <h3>Traslados de equipo / maquinaria</h3>
-      </li>
-      <li class="service">
-        <img src="img/servicios/reubicacion.jpg" alt="Reubicación de equipo" loading="lazy">
-        <h3>Reubicación de equipo</h3>
-      </li>
-      <li class="service">
-        <img src="img/servicios/instalacion.jpg" alt="Instalación de todo tipo de maquinaria" loading="lazy">
-        <h3>Instalación de todo tipo de maquinaria</h3>
-      </li>
-      <li class="service">
-        <img src="img/servicios/plantas.jpg" alt="Montaje y desmantelamiento de plantas industriales" loading="lazy">
-        <h3>Montaje y desmantelamiento de plantas industriales</h3>
-      </li>
-      <li class="service">
-        <img src="img/servicios/estructuras.jpg" alt="Montaje de estructuras" loading="lazy">
-        <h3>Montaje de estructuras</h3>
-      </li>
+  <section class="section" aria-labelledby="servicios">
+    <div class="section__head">
+      <p class="eyebrow condensed">GS RAL Proveedores Industriales</p>
+      <h2 id="servicios" class="condensed">Nuestros servicios</h2>
+      <div class="bars" aria-hidden="true"><span></span><span></span><span></span></div>
+    </div>
+    <ul class="services">
+      <li class="service"><img src="img/servicios/rigging.jpg" alt="" loading="lazy"><h3 class="condensed">Rigging</h3></li>
+      <li class="service"><img src="img/servicios/maniobras.jpg" alt="" loading="lazy"><h3 class="condensed">Maniobras industriales</h3></li>
+      <li class="service"><img src="img/servicios/carga-descarga.jpg" alt="" loading="lazy"><h3 class="condensed">Carga / descarga</h3></li>
+      <li class="service"><img src="img/servicios/traslados.jpg" alt="" loading="lazy"><h3 class="condensed">Traslados de equipo / maquinaria</h3></li>
+      <li class="service"><img src="img/servicios/reubicacion.jpg" alt="" loading="lazy"><h3 class="condensed">Reubicación de equipo</h3></li>
+      <li class="service"><img src="img/servicios/instalacion.jpg" alt="" loading="lazy"><h3 class="condensed">Instalación de todo tipo de maquinaria</h3></li>
+      <li class="service"><img src="img/servicios/plantas.jpg" alt="" loading="lazy"><h3 class="condensed">Montaje y desmantelamiento de plantas industriales</h3></li>
+      <li class="service"><img src="img/servicios/estructuras.jpg" alt="" loading="lazy"><h3 class="condensed">Montaje de estructuras</h3></li>
     </ul>
+
+    <div class="rent">
+      <img src="img/renta.jpg" alt="Camiones de GS RAL" loading="lazy">
+      <div class="rent__body">
+        <h2 class="condensed">Renta de equipos para maniobras</h2>
+        <ul>
+          <li>Herramienta</li>
+          <li>Gantry</li>
+          <li>Equipo de elevación</li>
+          <li><span><b>Montacargas</b> 5K a 100K lbs</span></li>
+          <li>Plataformas industriales</li>
+          <li><span><b>Grúas de pasillo</b> 8 a 15 ton</span></li>
+          <li><span><b>Grúas Titan</b> 12 a 22 ton</span></li>
+          <li><span><b>Grúas A/T</b> 20 a 100 ton</span></li>
+          <li><span><b>Lowboy</b> 30 a 80 ton</span></li>
+        </ul>
+      </div>
+    </div>
   </section>
 </body>
 </html>
